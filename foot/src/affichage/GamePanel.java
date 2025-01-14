@@ -1,5 +1,6 @@
 package affichage;
-
+//E:\GitHub\Foot\bleu.jpg
+//E:\GitHub\Foot\rouge.jpg
 import jeu.Ballon;
 import jeu.Joueur;
 import jeu.Terrain;
@@ -17,9 +18,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class GamePanel extends JFrame {
-    Joueur joueur = new Joueur();
-    Ballon ballon = new Ballon();
-    Terrain terrain = new Terrain();
+    Joueur joueur;
+    Ballon ballon;
+    Terrain terrain;
 
     JLabel imageLabel;
 
@@ -42,6 +43,10 @@ public class GamePanel extends JFrame {
         return terrain1;
     }
     public GamePanel() {
+        this.terrain = new Terrain();
+        this.joueur = new Joueur();
+        this.ballon = new Ballon();
+
         this.setTitle("VAR CHECK");
 
         // Configuration de la fenêtre

@@ -43,7 +43,7 @@ public class Terrain {
         if (attaquant == 1) {
             Joueur lastDefense = getEquipe2().get(0);
             getEquipe2().get(0).setLastDefense(true);
-            if (getEquipe2().get(0).isGardien) {
+            if (getEquipe2().get(0).getGardien()) {
                 lastDefense = getEquipe2().get(1);
                 getEquipe2().get(1).setLastDefense(true);
                 getEquipe2().get(0).setLastDefense(false);
@@ -59,7 +59,7 @@ public class Terrain {
         } else if (attaquant == 2) {
             Joueur lastDefense = getEquipe1().get(0);
             getEquipe1().get(0).setLastDefense(true);
-            if (getEquipe1().get(0).isGardien) {
+            if (getEquipe1().get(0).getGardien()) {
                 lastDefense = getEquipe1().get(1);
                 getEquipe1().get(1).setLastDefense(true);
                 getEquipe1().get(0).setLastDefense(false);
@@ -78,9 +78,9 @@ public class Terrain {
         int attaquant = equipeAttaquant();
         if (attaquant == 1) {
             for (Joueur joueur2 : getEquipe2()) {
-                if (joueur2.isLastDefense) {
+                if (joueur2.getLastDefense()) {
                     for (int i = 0; i < getEquipe1().size(); i++) {
-                        if (joueur2.getPositionCercle().getX() + joueur2.positionCercle.getWidth() < getEquipe1().get(i).positionCercle.getX() + getEquipe1().get(i).positionCercle.getWidth() ) {
+                        if (joueur2.getPositionCercle().getX() + joueur2.getPositionCercle().getWidth() < getEquipe1().get(i).getPositionCercle().getX() + getEquipe1().get(i).getPositionCercle().getWidth() ) {
                             getEquipe1().get(i).setHorsJeu(true);
                         }
                     }
@@ -90,9 +90,9 @@ public class Terrain {
         }
         else if (attaquant == 2) {
             for (Joueur joueur1 : getEquipe1()) {
-                if (joueur1.isLastDefense) {
+                if (joueur1.getLastDefense()) {
                     for (int i = 0; i < getEquipe2().size(); i++) {
-                        if (joueur1.getPositionCercle().getX() > getEquipe2().get(i).positionCercle.getX() ) {
+                        if (joueur1.getPositionCercle().getX() > getEquipe2().get(i).getPositionCercle().getX() ) {
                             getEquipe2().get(i).setHorsJeu(true);
                         }
                     }
